@@ -18,3 +18,4 @@ in
 // import ./animations.nix {inherit lib;}
 // import ./env.nix
 // import ./keybinds.nix {inherit lua;}
+// import ./dispatchers.nix {inherit lua;}

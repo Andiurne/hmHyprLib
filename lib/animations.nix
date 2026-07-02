@@ -1,6 +1,6 @@
 {lib}:
 {
-  bezierRule = point1: point2: {
+	bezierRule = point1: point2: {
 		type = "bezier";
 		points = [
 			point1
@@ -22,9 +22,9 @@
 		];
 	};
 
-  addStyle = animation: style: animation // {style = style;};
+	addStyle = animation: style: animation // {style = style;};
 
-  mkAnimation = leaf: speed: curveName:
+	mkAnimation = leaf: speed: curveName:
 	  if curveName == "easy" then
 	  {
 		  leaf = leaf;

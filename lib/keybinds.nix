@@ -1,25 +1,25 @@
 {lua}:
 rec {
-bindVarParse = bind: key: (bind + " .. \" + " + key + "\"");
+bindVarParse = mod: key: (mod + " .. \" + " + key + "\"");
 
 exec = cmd: (lua ("hl.dsp.exec_cmd(\"" + cmd + "\")"));
 
-bindMap = bind: key:
-	if (bind == "mainMod") || (bind == "subMod") then
-		lua (bindVarParse bind key)
+bindMap = mod: key:
+	if (mod == "mainMod") || (mod == "subMod") then
+		lua (bindVarParse mod key)
 	else
-		bind;
+		mod;
 
-simpleBind = bind: key: cmd: {
+simpleBind = mod: key: cmd: {
 	_args = [
-		(bindMap bind key)
+		(bindMap mod key)
 		(exec cmd)
 	];
 };
-pvarBind = bind: key: cmd: {
+pvarBind = mod: key: luaVar: {
 	_args = [
-		(bindMap bind key)
-		(lua("hl.dsp.exec_cmd(\"app2unit -- \" .. " + cmd + ")"))
+		(bindMap mod key)
+		(lua("hl.dsp.exec_cmd(\"app2unit -- \" .. " + luaVar + ")"))
 	];
 };
 ipcBind = mod: key: cmd: {
@@ -42,10 +42,4 @@ fullBind = mod: key: dsp: rule:
 		rule
 	];
 };
-
-window = method: (lua ("hl.dsp.window." + method + "()"));
-windowArgs = method: args: (lua ("hl.dsp.window." + method + "(" + args + ")"));
-layout = name: (lua ("hl.dsp.layout(\"" + name + "\")"));
-focus = rule: (lua ("hl.dsp.focus(" + rule + ")"));
-workspaceArgs = method: args: (lua ("hl.dsp.workspace." + method + "(\"" + args + "\")"));
 }
