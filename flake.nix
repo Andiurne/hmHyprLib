@@ -3,6 +3,6 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05-small";
   outputs = {nixpkgs, ...}:
   {
-    hmHyprLib = import ./lib {lib = nixpkgs.lib;};
+    lib = import ./lib {lib = nixpkgs.lib;};
   };
 }
