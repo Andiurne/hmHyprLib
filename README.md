@@ -1,40 +1,40 @@
 # Contents
 All functions are declared in lib.<function>
 
-## lua (code)
-An alias for nixpkgs.lib.generators.mkLuaInline.
-Must be called AFTER all string processing is done.
+## Makers
+### mkAnimation (leaf speed curveName)
+Takes in the leaf, speed, and curveName, and produces an enabled animation.## Interims
 
-## autostart (list)
+### autostart (list)
 Takes in a list of commands (as strings) to run on hypland.start,
 to be placed into the list of "on" calls.
 I.e. ...hyprland.settings.on = [(autostart ["noctalia" "equibop"]) ...]
 
-## bezierRule (p1 p2), springRule (mass stiffness dampening)
-Produce attrSets of type bezier or spring respectively.
-
-## mkCurve (name rule)
+### mkCurve (name rule)
 Produces a curve "name" with the given rule
 
-## addStyle (animation style)
+## env (name value)
+Produces an entry for ...settings.env
+
+
+## Interim Functions
+### addStyle (animation style)
 Takes a result of mkAnimation and adds a given "style" to it.
 
-## mkAnimation (leaf speed curveName)
-Takes in the leaf, speed, and curveName, and produces an enabled animation.
+### lua (code)
+An alias for nixpkgs.lib.generators.mkLuaInline.
+Must be called AFTER all string processing is done.
 
-## Dispatchers
+### Dispatchers
 Each of:
-    - window
-    - windowArgs
-    - layout
-    - focus
-    - workspaceArgs
-    - exec (for exec_cmd)
+- window
+- windowArgs
+- layout
+- focus
+- workspaceArgs
+- exec (for exec_cmd)
 produce hl.dsp.<name>(<args> for windowArgs, workspaceArgs, and exec) elements,
 for use in bindings.
-
-## env (name value)
-Produces am entry for ...settings.env
 
 ## Bindings
 ### bindMap (mod key)
