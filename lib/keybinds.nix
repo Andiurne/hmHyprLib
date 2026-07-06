@@ -4,6 +4,8 @@ bindVarParse = mod: key: (mod + " .. \" + " + key + "\"");
 
 exec = cmd: (lua ("hl.dsp.exec_cmd(\"" + cmd + "\")"));
 
+addFlags = bindList: flagSet: bindList ++ [ flagSet ];
+
 bindMap = mod: key:
 	if (mod == "mainMod") || (mod == "subMod") then
 		lua (bindVarParse mod key)
