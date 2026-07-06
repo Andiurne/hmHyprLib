@@ -3,7 +3,7 @@ All functions are declared in lib.<function>
 
 ## Makers
 ### mkAnimation (leaf speed curveName)
-Takes in the leaf, speed, and curveName, and produces an enabled animation.## Interims
+Takes in the leaf, speed, and curveName, and produces an enabled animation.
 
 ### autostart (list)
 Takes in a list of commands (as strings) to run on hypland.start,
