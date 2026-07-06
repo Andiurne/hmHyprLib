@@ -13,7 +13,7 @@ I.e. ...hyprland.settings.on = [(autostart ["noctalia" "equibop"]) ...]
 ### mkCurve (name rule)
 Produces a curve "name" with the given rule
 
-## env (name value)
+### env (name value)
 Produces an entry for ...settings.env
 
 
