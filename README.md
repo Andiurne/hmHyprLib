@@ -21,6 +21,10 @@ Produces an entry for ...settings.env
 ### addStyle (animation style)
 Takes a result of mkAnimation and adds a given "style" to it.
 
+### addFlags (bindSet flagSet)
+Takes in a result from one of the bind functions (i.e. {_args = [...];}) and adds
+flags as an attribute set to it. I.e. {locked = true; repeating = true; }.
+
 ### lua (code)
 An alias for nixpkgs.lib.generators.mkLuaInline.
 Must be called AFTER all string processing is done.
