@@ -20,7 +20,7 @@ rec {
 	ipcBind = mod: cmd: {
 		_args = [
 			mod
-			(exec "ipc .. '${cmd}'")
+			(execLiteral "ipc .. '${cmd}'")
 		];
 	};
 	dspBind = mod: dsp: {
