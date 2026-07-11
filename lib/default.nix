@@ -1,6 +1,7 @@
 {lib}:
 let
 lua = lib.generators.mkLuaInline;
+toLua = lib.generators.toLua;
 in
 {
   lua = lua;
@@ -18,4 +19,4 @@ in
 // import ./animations.nix {inherit lib;}
 // import ./env.nix
 // import ./keybinds.nix {inherit lua;}
-// import ./dispatchers.nix {inherit lua;}
+// import ./dispatchers.nix {inherit lua toLua;}
