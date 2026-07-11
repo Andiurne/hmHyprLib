@@ -1,7 +1,7 @@
 {lua, toLua}:
 let
 # Lua-fies sets into tables, leaves string literals alone
-checkArgs = args: if builtins.typeOf args == "string" then lua args else toLua {} args;
+checkArgs = args: if builtins.typeOf args == "string" then args else toLua {} args;
 in
 {
   window = method: (lua "hl.dsp.window.${method}()");
