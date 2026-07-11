@@ -5,5 +5,5 @@
   focus = rule: (lua "hl.dsp.focus(${rule})");
   workspaceArgs = method: args: (lua "hl.dsp.workspace.${method}(${args})");
   dspCall = method: (lua "hl.dsp.${method}()");
-  dspCallArgs = method: (lua "hl.dsp.${method}(${args})");
+  dspCallArgs = method: args: (lua "hl.dsp.${method}(${args})");
 }
