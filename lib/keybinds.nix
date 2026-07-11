@@ -1,6 +1,7 @@
 {lua}:
 rec {
 	exec = cmd: (lua ("hl.dsp.exec_cmd('${cmd}')"));
+	execLiteral = cmd: (lua("hl.dsp.exec_cmd(${cmd})"));
 
 	addFlags = bindSet: flagSet: bindSet // {_args = bindSet._args ++ [flagSet];};
 
@@ -13,13 +14,13 @@ rec {
 	pvarBind = mod: luaVar: {
 		_args = [
 			mod
-			(exec "app2unit -- ${luaVar}")
+			(execLiteral "'app2unit -- ' .. ${luaVar}")
 		];
 	};
 	ipcBind = mod: cmd: {
 		_args = [
 			mod
-			(exec "ipc ${cmd}")
+			(exec "ipc .. '${cmd}'")
 		];
 	};
 	dspBind = mod: dsp: {
