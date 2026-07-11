@@ -1,45 +1,37 @@
 {lua}:
 rec {
-bindVarParse = mod: key: (mod + " .. \" + " + key + "\"");
-
-exec = cmd: (lua ("hl.dsp.exec_cmd(\"" + cmd + "\")"));
+exec = cmd: (lua ("hl.dsp.exec_cmd('" + cmd + "')"));
 
 addFlags = bindSet: flagSet: bindSet // {_args = bindSet._args ++ [flagSet];};
 
-bindMap = mod: key:
-	if (mod == "mainMod") || (mod == "subMod") then
-		lua (bindVarParse mod key)
-	else
-		mod;
-
-simpleBind = mod: key: cmd: {
+simpleBind = bindString: cmd: {
 	_args = [
-		(bindMap mod key)
+		(lua bindString)
 		(exec cmd)
 	];
 };
-pvarBind = mod: key: luaVar: {
+pvarBind = bindString: luaVar: {
 	_args = [
-		(bindMap mod key)
-		(lua("hl.dsp.exec_cmd(\"app2unit -- \" .. " + luaVar + ")"))
+		(lua bindString)
+		(lua ("hl.dsp.exec_cmd('app2unit -- ' .. " + luaVar + ")"))
 	];
 };
-ipcBind = mod: key: cmd: {
+ipcBind = bindString: cmd: {
 	_args = [
-		(bindMap mod key)
-		(lua ("hl.dsp.exec_cmd(ipc .. \"" + cmd + "\")"))
+		(lua bindString)
+		(lua ("hl.dsp.exec_cmd(ipc .. '" + cmd + '")"))
 	];
 };
-dspBind = mod: key: dsp: {
+dspBind = bindString: dsp: {
 	_args = [
-		(bindMap mod key)
+		(lua bindString)
 		dsp
 	];
 };
-fullBind = mod: key: dsp: rule:
+fullBind = bindString: dsp: rule:
 {
 	_args = [
-		(bindMap mod key)
+		(lua bindString)
 		dsp
 		rule
 	];

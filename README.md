@@ -41,22 +41,18 @@ produce hl.dsp.<name>(<args> for windowArgs, workspaceArgs, and exec) elements,
 for use in bindings.
 
 ## Bindings
-### bindMap (mod key)
-Takes in a mod (a lua var, either mainMod or subMod) and a key, and produces a full keybind.
-If key is "", the binding will just be "mod" literal.
-I.e., to bind Print Screen, (bindMap "Print" "")
+### simpleBind (bindString cmd)
+Bind a literal cmd
+NOTE: "bindString" must be a literal lua string
 
-### simpleBind (mod key cmd)
-Bind a literal cmd to mod+key
-
-### pvarBind (mod key luaVar)
+### pvarBind (bindString luaVar)
 Bind a lua variable command (i.e. local terminal = "foot") to bind+key
 
-### ipcBind (mod key cmd)
+### ipcBind (bindString cmd)
 Similar to pvarBind, but for the ipc prefix "ipc .. <cmd>"
 
-### dspBind (mod key dsp)
-Bind mod + key to a dispatcher
+### dspBind (bindString dsp)
+Binds for hl.dsp.{dsp}
 
-### fullBind (mod key dsp rule)
-Bind mod + key to dsp with rule
+### fullBind (bindString dsp rule)
+Bind bindString to hl.dsp.{dsp} with rule

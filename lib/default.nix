@@ -9,7 +9,7 @@ in
 		  "hyprland.start"
 		  (lua ("function()\n " +
 			  builtins.concatStringsSep " \n "
-			  (map (cmd: "hl.exec_cmd(\"" + cmd + "\")") list) +
+			  (map (cmd: "hl.exec_cmd('" + cmd + "')") list) +
 			  "\n end"
 			))
 	  ];
