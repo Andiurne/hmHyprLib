@@ -36,9 +36,11 @@ Each of:
 - layout
 - focus
 - workspaceArgs
-- exec (for exec_cmd
+- exec (for exec_cmd)
+- dspCall (for "hl.dsp.{method}")
+- dspCallArgs (for "hl.dsp.{method}({args})")
 produce hl.dsp.<name>(<args> for windowArgs, workspaceArgs, and exec) elements,
-for use in bindings.
+for use in dspCall.
 
 ## Bindings
 ### simpleBind (mod cmd)
@@ -52,7 +54,7 @@ Bind a lua variable command (i.e. local terminal = "foot") to bind+key
 Similar to pvarBind, but for the ipc prefix "ipc .. <cmd>"
 
 ### dspBind (mod dsp)
-Binds for hl.dsp.{dsp}
+Binds for hl.dsp.{dsp}.
 
 ### fullBind (mod dsp rule)
 Bind mod to hl.dsp.{dsp} with rule
